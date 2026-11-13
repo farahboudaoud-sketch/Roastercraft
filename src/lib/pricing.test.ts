@@ -14,4 +14,9 @@ describe('monthlyPrice', () => {
   it('takes 20% off with annual billing', () => {
     expect(monthlyPrice(1, 'annual')).toBe(23.2);
   });
+
+  it('applies the annual discount once to the full total beyond 10 locations', () => {
+    expect(monthlyPrice(12, 'annual')).toBe(270.4);
+    expect(monthlyPrice(11, 'monthly')).toBe(314);
+  });
 });
